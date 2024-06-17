@@ -1,23 +1,18 @@
-import { calculateInvestmentResults } from "../util/investment";
 
-export default function UserInfo() {
+export default function UserInfo(onChangeInput) {
 
-	let initialInvestment, annualInvestment, returnOnInvestment, duration;
-
-	function handleChange(event) {
-		console.log(event.target.id);
-	}
+	
 
 	return (
 		<div id="user-input">
 				<label htmlFor="initial-investment">Initial Investment</label>
-				<input type="number" id="inital-investment" onChange={handleChange}/>
+				<input type="number" id="initial-investment" onChange={onChangeInput}/>
 				<label htmlFor="annual-investment">Annual Investment</label>
-				<input type="number" id="annual-investment" onChange={handleChange}/>
+				<input type="number" id="annual-investment" onChange={onChangeInput}/>
 				<label htmlFor="return">Expected Return</label>
-				<input type="number" id="return" onChange={handleChange}/>
+				<input type="number" id="return" onChange={onChangeInput}/>
 				<label htmlFor="duration">Duration</label>
-				<input type="number" id="duration" onChange={handleChange}/>
+				<input type="number" id="duration" onChange={onChangeInput}/>
 		</div>
 	);
 }
