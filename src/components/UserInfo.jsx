@@ -1,7 +1,5 @@
 
-export default function UserInfo(onChangeInput) {
-
-	
+export default function UserInfo({onChangeInput}) {
 
 	return (
 		<div id="user-input">

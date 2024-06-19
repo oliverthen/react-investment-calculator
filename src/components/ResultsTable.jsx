@@ -1,4 +1,6 @@
-export default function ResultsTable(resultsArr) {
+export default function ResultsTable({resultsArr}) {
+
+	console.log(resultsArr);
 	return (
 		<table id="result" className="center">
 			<thead>
@@ -6,7 +8,7 @@ export default function ResultsTable(resultsArr) {
 					<th>Year</th>
 					<th>Investment Value</th>
 					<th>Interest(Year)</th>
-					<th>Total Interst</th>
+					<th>Total Interest</th>
 					<th>Invested Capitol</th>
 				</tr>
 			</thead>
@@ -18,6 +20,16 @@ export default function ResultsTable(resultsArr) {
 					<td>69</td>
 					<td>420</td>
 				</tr>
+				{
+					resultsArr && resultsArr.map(singleResult => (
+						<tr>
+							<td>{singleResult.year}</td>
+							<td>{singleResult.interest}</td>
+							<td>{singleResult.valueEndOfYear}</td>
+							<td>{singleResult.annualInvestment}</td>
+						</tr>
+					))
+				}
 			</tbody>
 		</table>
 	);

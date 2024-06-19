@@ -7,9 +7,13 @@ import ResultsTable from "./components/ResultsTable"
 import { calculateInvestmentResults } from "./util/investment"
 
 function App() {
+	// const [displayTable, flipDisplayTable] = useState(false);
+	const [results, changeResults] = useState([]);
+
+
 	let initialInvestment, annualInvestment, expectedReturn, duration;
 
-	let results = [];
+	
 
 	function handleChange(event) {
 		if (event.target.id === 'initial-investment') {
@@ -25,7 +29,7 @@ function App() {
 		if (initialInvestment && annualInvestment && expectedReturn && duration) {
 			console.log(initialInvestment, annualInvestment, expectedReturn, duration);
 			let packagedInfo = {initialInvestment, annualInvestment, expectedReturn, duration};
-			results = calculateInvestmentResults(packagedInfo);
+			changeResults(calculateInvestmentResults(packagedInfo));
 
 			console.log(results);
 		}
