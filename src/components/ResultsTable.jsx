@@ -1,3 +1,5 @@
+import { formatter } from "../util/investment";
+
 export default function ResultsTable({resultsArr}) {
 
 	console.log(resultsArr);
@@ -13,20 +15,14 @@ export default function ResultsTable({resultsArr}) {
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>2024</td>
-					<td>100</td>
-					<td>6.2</td>
-					<td>69</td>
-					<td>420</td>
-				</tr>
 				{
 					resultsArr && resultsArr.map(singleResult => (
-						<tr>
+						<tr key={singleResult.year}>
 							<td>{singleResult.year}</td>
-							<td>{singleResult.interest}</td>
-							<td>{singleResult.valueEndOfYear}</td>
-							<td>{singleResult.annualInvestment}</td>
+							<td>{formatter.format(singleResult.valueEndOfYear)}</td>
+							<td>{formatter.format(singleResult.interest)}</td>
+							<td>{formatter.format(singleResult.rollingInterest)}</td>
+							<td>{formatter.format(singleResult.investedCapital)}</td>
 						</tr>
 					))
 				}
